@@ -1,0 +1,12 @@
+.update-formation-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  

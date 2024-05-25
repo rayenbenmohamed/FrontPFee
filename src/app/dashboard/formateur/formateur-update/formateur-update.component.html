@@ -1,0 +1,39 @@
+<h2 mat-dialog-title>Mise à jour Formateur</h2>
+<mat-dialog-content>
+  <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Nom</mat-label>
+      <input matInput placeholder="Enter Nom" formControlName="nom">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Prénom</mat-label>
+      <input matInput placeholder="Enter Prénom" formControlName="prenom">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" placeholder="Enter Email" formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Numéro de téléphone</mat-label>
+      <input matInput placeholder="Enter Numéro de téléphone" formControlName="numTel">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>CIN</mat-label>
+      <input matInput placeholder="Enter CIN" formControlName="cin">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Certificat</mat-label>
+      <input matInput placeholder="Enter Certificat" formControlName="certificat">
+    </mat-form-field>
+    <mat-dialog-actions>
+        <button mat-button class="btn btn-danger btn-sm" (click)="onCancel()">Annuler</button>
+        <button mat-button class="btn btn-primary btn-sm" color="primary" type="submit">Modifier</button>
+      </mat-dialog-actions>
+  </form>
+</mat-dialog-content>
+

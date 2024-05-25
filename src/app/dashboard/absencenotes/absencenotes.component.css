@@ -1,0 +1,122 @@
+/* Styles de base pour la page */
+body {
+    font-family: 'Arial', sans-serif; /* Utilisez une police propre et moderne */
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+  }
+  
+  /* Amélioration de la visibilité des cartes */
+  .modules-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.main-content {
+    margin-left: 270px; /* Ajustez cette valeur selon vos besoins */
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+
+.module-card {
+    width: 296px;
+    margin: 10px;
+}
+
+.module-image {
+    height: 197.325px; /* Exact height */
+    width: 296px;      /* Exact width */
+    object-fit: cover; /* This will cover the area without distorting the image */
+}
+
+  /* Titres pour les différentes sections */
+  h1, h2, h3 {
+    color: #0056b3;
+  }
+  
+  /* Liens décoratifs */
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Style des listes pour les modules */
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    background: #e9ecef;
+    margin-bottom: 8px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  /* Styles spécifiques pour l'enseignant et les formations */
+  .enseignant, .emploi, .formation {
+    background: #0056ac;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  /* Espacement et styles pour les en-têtes */
+
+  
+  .img-fluid.rounded-circle {
+    width: 150px; /* Fix image width */
+    height: 150px; /* Fix image height */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+  }
+  
+  /* Adjust padding around the image for better layout */
+  .card-body .col-md-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-align the image and buttons */
+    justify-content: center;
+  }
+  
+  /* Enhance button styling for better visual */
+  .btn-info {
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+  }
+  
+  .btn-info:hover {
+    color: #fff;
+    background-color: #138496;
+    border-color: #117a8b;
+  }
+  
+  /* Increase spacing between buttons and form input */
+  input[type="file"] {
+    margin-top: 10px;
+  }
+  .example-sidenav {
+    width: 250px; /* Adjust the width as needed */
+
+    left: 0;
+    height: 100%;
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    overflow-y: auto; /* Enable scrolling if content exceeds height */
+  }
+  .mat-drawer-content {
+    margin-left: 220px; /* Adjust the margin as needed to move the content to the right */
+    padding: 20px; /* Add padding to maintain spacing */
+}
+.example-container {
+  min-height: 100vh;  /* Ensure container takes minimum height */
+}

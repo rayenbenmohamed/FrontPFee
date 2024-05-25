@@ -1,0 +1,87 @@
+<!-- etudiant.component.html -->
+<div class="main-content">
+
+  <button class="btn btn-primary btn-sm" (click)="openAddStudentDialog()">Ajouter Candidat</button>
+
+    <div class="table-responsive">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- Name Column -->
+        <ng-container matColumnDef="nom">
+          <th mat-header-cell *matHeaderCellDef> Nom </th>
+          <td mat-cell *matCellDef="let etudiant"> {{ etudiant.nom }} </td>
+        </ng-container>
+
+        <!-- First Name Column -->
+        <ng-container matColumnDef="prenom">
+          <th mat-header-cell *matHeaderCellDef> Prénom </th>
+          <td mat-cell *matCellDef="let etudiant"> {{ etudiant.prenom }} </td>
+        </ng-container>
+
+        <!-- Birth Date Column -->
+        <ng-container matColumnDef="date_naissance">
+          <th mat-header-cell *matHeaderCellDef> Date de naissance </th>
+          <td mat-cell *matCellDef="let etudiant"> {{ etudiant.date_naissance | date }} </td>
+        </ng-container>
+
+        <!-- Phone Number Column -->
+        <ng-container matColumnDef="numTel">
+          <th mat-header-cell *matHeaderCellDef> Numéro de téléphone </th>
+          <td mat-cell *matCellDef="let etudiant"> {{ etudiant.numTel }} </td>
+        </ng-container>
+
+        <!-- Email Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let etudiant"> {{ etudiant.email }} </td>
+        </ng-container>
+
+        <!-- CIN Column -->
+        <ng-container matColumnDef="cin">
+          <th mat-header-cell *matHeaderCellDef> CIN </th>
+          <td mat-cell *matCellDef="let etudiant"> {{ etudiant.cin }} </td>
+        </ng-container>
+
+        <!-- School Level Column -->
+        <ng-container matColumnDef="niveauScolaire">
+          <th mat-header-cell *matHeaderCellDef> Niveau Scolaire </th>
+          <td mat-cell *matCellDef="let etudiant"> {{ etudiant.niveauScolaire }} </td>
+        </ng-container>
+
+        <!-- Amount Paid Column -->
+        <ng-container matColumnDef="montantApaye">
+          <th mat-header-cell *matHeaderCellDef> Montant Payé </th>
+          <td mat-cell *matCellDef="let etudiant"> {{ etudiant.montantApaye }} </td>
+        </ng-container>
+
+        <!-- Account Column -->
+        <ng-container matColumnDef="compte">
+          <th mat-header-cell *matHeaderCellDef> Compte </th>
+          <td mat-cell *matCellDef="let etudiant">
+            <span *ngIf="etudiant.compte">Supprimer Compte</span>
+            <button *ngIf="!etudiant.compte" class="btn btn-success btn-sm" (click)="openRegister(etudiant)">Ajouter Compte</button>
+          </td>
+          
+        </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let etudiant">
+            <button class="btn btn-primary btn-sm" (click)="openUpdateStudentModal(etudiant)">Modifier</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteEtudiant(etudiant._id)">Supprimer</button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+
+    </div>
+
+
+</div>
+
+<app-sidebar></app-sidebar>

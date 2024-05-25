@@ -1,0 +1,46 @@
+<div class="update-formation-container">
+  <h2>Mise à jour Formation</h2>
+  <form [formGroup]="updateFormationForm" (ngSubmit)="onSubmit()">
+    <!-- Nom Formation Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>Nom Formation</mat-label>
+      <input matInput placeholder="Entrez le nom de la formation" formControlName="nomformation" required>
+    </mat-form-field>
+
+    <!-- Durée Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>Durée</mat-label>
+      <input matInput placeholder="Durée" formControlName="duree" required>
+    </mat-form-field>
+
+    <!-- Prix Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>Prix</mat-label>
+      <input matInput type="number" placeholder="Prix" formControlName="prix" required>
+    </mat-form-field>
+
+    <!-- Niveau Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>Niveau</mat-label>
+      <input matInput placeholder="Niveau requis" formControlName="niveau" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>description</mat-label>
+      <input matInput placeholder="description requis" formControlName="description" required>
+    </mat-form-field>
+
+    <!-- Catégorie Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>Catégorie</mat-label>
+      <mat-select formControlName="categorie" required>
+        <mat-option *ngFor="let category of allCategories" [value]="category._id">{{ category.nom }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button class="btn btn-primary btn-sm" mat-button mat-flat-button color="primary" type="submit">Modifier</button>
+      <button class="btn btn-danger btn-sm" mat-button mat-flat-button color="warn" (click)="closeModal()">Annuler</button>
+    </div>
+  </form>
+</div>

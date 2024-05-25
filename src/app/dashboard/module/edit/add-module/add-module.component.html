@@ -1,0 +1,26 @@
+<form [formGroup]="moduleForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nomModule">Nom du Module</label>
+      <input type="text" id="nomModule" formControlName="nomModule" class="form-control">
+    </div>
+  
+    <div class="form-group">
+      <label for="enseignantId">Enseignant</label>
+      <select id="enseignantId" formControlName="enseignantId" class="form-control">
+        <option value="">Select Formateur</option>
+        <option *ngFor="let enseignant of enseignants" [value]="enseignant._id">{{ enseignant.nom }}</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="formationsId">Formation</label>
+      <select id="formationsId" formControlName="formationsId" class="form-control">
+        <option value="">Select Formation</option>
+        <option *ngFor="let formation of formations" [value]="formation._id">{{ formation.nomformation }}</option>
+      </select>
+    </div>
+    
+  
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  

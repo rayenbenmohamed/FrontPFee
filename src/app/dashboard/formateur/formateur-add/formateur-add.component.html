@@ -1,0 +1,46 @@
+<!-- formateur-add.component.html -->
+<h2 mat-dialog-title>Ajouter Formateur</h2>
+<mat-dialog-content>
+    <form [formGroup]="formateurForm" (ngSubmit)="onSubmit()">
+        <!-- Nom Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>Nom</mat-label>
+      <input matInput placeholder="Nom" formControlName="nom">
+    </mat-form-field>
+
+    <!-- Prénom Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>Prénom</mat-label>
+      <input matInput placeholder="Prénom" formControlName="prenom">
+    </mat-form-field>
+
+    <!-- Email Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" placeholder="Email" formControlName="email">
+    </mat-form-field>
+
+    <!-- Numéro de Téléphone Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>Numéro de téléphone</mat-label>
+      <input matInput placeholder="Numéro de téléphone" formControlName="numTel">
+    </mat-form-field>
+
+    <!-- CIN Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>CIN</mat-label>
+      <input matInput placeholder="CIN" formControlName="cin">
+    </mat-form-field>
+
+    <!-- Certificat Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>Certificat</mat-label>
+      <input matInput placeholder="Certificat" formControlName="certificat">
+    </mat-form-field>
+    <mat-dialog-actions>
+        <button mat-button class="btn btn-danger btn-sm" [mat-dialog-close]="null">Annuler</button>
+        <button mat-button class="btn btn-primary btn-sm" color="primary" type="submit" >Ajouter</button>
+      </mat-dialog-actions>
+      
+  </form>
+</mat-dialog-content>

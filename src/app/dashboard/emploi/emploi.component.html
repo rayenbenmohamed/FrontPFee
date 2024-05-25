@@ -1,0 +1,50 @@
+<div class="container mt-4">
+  <div class="main-content">
+
+  <!-- Button to open add emploi modal -->
+  <div class="mb-3">
+    <button type="button" class="btn btn-success" (click)="openAddEmploiDialog()">Add New Emploi</button>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-md-8">
+      <div *ngFor="let emploi of emplois" class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ emploi.nom }}</h5>
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead class="thead-light">
+                <tr>
+                  <th>Jour</th>
+                  <th>Heures</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let jour of ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche']">
+                  <td>{{ jour | titlecase }}</td>
+                  <td>
+                    <ul class="list-unstyled">
+                      <li *ngFor="let plage of $any(emploi)[jour]">
+                        <ng-container *ngIf="plage.heureDebut && plage.heureFin; else noTimeRange">
+                          De {{ plage.heureDebut }} à {{ plage.heureFin }}
+                        </ng-container>
+                        <ng-template #noTimeRange></ng-template>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <button type="button" class="btn btn-primary" (click)="openUpdateEmploiModal(emploi)">Update</button>
+          <button type="button" class="btn btn-danger" (click)="emploi._id && deleteEmploi(emploi._id)">Delete</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <app-sidebar></app-sidebar>
+    </div>
+  </div>
+</div>
+</div>
+

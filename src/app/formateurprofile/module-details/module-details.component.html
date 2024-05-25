@@ -1,0 +1,39 @@
+<div *ngIf="module$ | async as module" class="module-details">
+  <h1>{{ module.nomModule }}</h1>
+  <p><strong>Emploi:</strong> 
+      <a *ngIf="module.emploi._id" (click)="fetchEmploiDetails(module.emploi._id, module._id)"
+         class="text-decoration-none">
+          {{ module.emploi.nom }}
+      </a>
+    </p>    
+  
+    <div>
+      <div *ngFor="let doc of module.documents" class="card">
+          <div class="card-body d-flex justify-content-between align-items-center">
+              <a href="{{ doc.fileName }}" download target="_blank">
+                  <i class="bi bi-file-pdf"></i>
+                  <span>{{ doc?.description }}</span></a>
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x-circle-fill text-danger" viewBox="0 0 16 16" (click)="deleteDocument(module._id, doc._id)">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+          </svg>
+      
+        </div>
+      </div>
+      <div class="module-actions">
+        <div>
+          <input type="file" (change)="onFileSelected($event)">
+          <input type="text" [(ngModel)]="description" placeholder="Description">
+          <button (click)="uploadDocument(module._id)">Upload Document</button>
+      </div>
+        
+      </div>
+    </div>
+    <app-absence [moduleId]="module._id"></app-absence><br>
+    <app-note-management [moduleId]="module._id"></app-note-management>
+
+        
+
+</div>
+
+  

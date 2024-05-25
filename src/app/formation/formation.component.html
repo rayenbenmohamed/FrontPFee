@@ -1,0 +1,48 @@
+<!-- src/app/formation/formation.component.html -->
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12">
+      <div class="input-group mb-3">
+        <input 
+          type="text" 
+          class="form-control" 
+          placeholder="Search by name" 
+          [(ngModel)]="searchText"
+          aria-label="Search by name" 
+          aria-describedby="basic-addon2"
+          (input)="onSearchTextChange()"
+        >
+        <span class="input-group-text" id="basic-addon2">
+          <i class="bi bi-search"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div *ngFor="let formation of filteredFormations" class="col-lg-3 col-md-4 col-sm-6 mb-4">
+      <div class="course-item bg-light">
+        <div class="position-relative overflow-hidden">
+          <img class="img-fluid" [src]="formation.image" alt="">
+        </div>
+        <div class="text-center p-4 pb-0">
+          <h3 class="mb-4">{{ formation.nomformation }}</h3>
+          <h5 class="mb-0">{{ formation.prix }} Dinar</h5>
+        </div>
+        <div class="d-flex justify-content-center mt-3 mb-3">
+          <a [routerLink]="['/demande-ins', 'formation', formation._id]" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">S'inscrire</a>
+          <a [routerLink]="['/formation', formation._id]" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Details</a>
+        </div>
+        
+        <div class="d-flex border-top">
+          <small class="flex-fill text-center border-end py-2">
+            <i class="fa fa-clock text-primary me-2"></i>{{ formation.duree }}
+          </small>
+          <small class="flex-fill text-center py-2">
+            <i class="fa fa-user text-primary me-2"></i>{{ formation.niveau }}
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

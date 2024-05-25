@@ -1,0 +1,59 @@
+<div class="student-form-container">
+    <h2>Ajouter Candidat</h2>
+    <form (ngSubmit)="onSubmit()" class="student-form">
+      <!-- Nom Field -->
+      <mat-form-field appearance="fill">
+        <mat-label>Nom</mat-label>
+        <input matInput placeholder="Nom" name="nom" [(ngModel)]="newEtudiant.nom" required>
+      </mat-form-field>
+  
+      <!-- Prenom Field -->
+      <mat-form-field appearance="fill">
+        <mat-label>Prenom</mat-label>
+        <input matInput placeholder="Prenom" name="prenom" [(ngModel)]="newEtudiant.prenom" required>
+      </mat-form-field>
+  
+      <!-- Date de Naissance Field -->
+      <mat-form-field appearance="fill">
+        <mat-label>Date de Naissance</mat-label>
+        <input matInput type="date" name="dateNaissance" [(ngModel)]="newEtudiant.date_naissance" required>
+      </mat-form-field>
+  
+      <!-- Numéro de Téléphone Field -->
+      <mat-form-field appearance="fill">
+        <mat-label>Numéro de Téléphone</mat-label>
+        <input matInput placeholder="Numéro de Téléphone" name="numTel" [(ngModel)]="newEtudiant.numTel">
+      </mat-form-field>
+  
+      <!-- Email Field -->
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" placeholder="Email" name="email" [(ngModel)]="newEtudiant.email" required>
+      </mat-form-field>
+  
+      <!-- CIN Field -->
+      <mat-form-field appearance="fill">
+        <mat-label>CIN</mat-label>
+        <input matInput placeholder="CIN" name="cin" [(ngModel)]="newEtudiant.cin" required>
+      </mat-form-field>
+  
+      <!-- Niveau Scolaire Field -->
+      <mat-form-field appearance="fill">
+        <mat-label>Niveau Scolaire</mat-label>
+        <input matInput placeholder="Niveau Scolaire" name="niveauScolaire" [(ngModel)]="newEtudiant.niveauScolaire">
+      </mat-form-field>
+  
+      <!-- Montant à Payer Field -->
+      <mat-form-field appearance="fill">
+        <mat-label>Montant à Payer</mat-label>
+        <input matInput type="number" placeholder="Montant à Payer" name="montanAtpaye" [(ngModel)]="newEtudiant.montantApaye">
+      </mat-form-field>
+  
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button class="btn btn-primary btn-sm" mat-flat-button color="primary" type="submit">Ajouter</button>
+        <button class="btn btn-danger btn-sm" mat-stroked-button color="warn" (click)="closeModal()">Annuler</button>
+      </div>
+    </form>
+  </div>
+  

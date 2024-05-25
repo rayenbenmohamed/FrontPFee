@@ -1,0 +1,51 @@
+<div class="add-formation-container">
+  <h2>Ajouter Formation</h2>
+  <form [formGroup]="formationForm" (ngSubmit)="onSubmit()">
+    <!-- Nom Formation Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>Nom Formation</mat-label>
+      <input matInput placeholder="Entrez le nom de la formation" formControlName="nomformation" required>
+    </mat-form-field>
+
+    <!-- Durée Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>Durée</mat-label>
+      <input matInput placeholder="Durée" formControlName="duree" required>
+    </mat-form-field>
+
+    <!-- Prix Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>Prix</mat-label>
+      <input matInput type="number" placeholder="Prix" formControlName="prix" required>
+    </mat-form-field>
+
+    <!-- Niveau Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>Niveau</mat-label>
+      <input matInput placeholder="Niveau requis" formControlName="niveau" required>
+    </mat-form-field>
+
+    <!-- Description Field -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Description</mat-label>
+      <textarea matInput placeholder="Description de la formation" formControlName="description" required></textarea>
+    </mat-form-field>
+
+    <!-- Image Upload Field -->
+    <div>
+      <label for="image">Image:</label>
+      <input type="file" id="image" (change)="handleFileInput($event)">
+    </div>
+
+    <!-- Catégorie Field -->
+    <mat-form-field appearance="fill">
+      <mat-label>Catégorie</mat-label>
+      <mat-select formControlName="categorie" required>
+        <mat-option *ngFor="let categorie of categories" [value]="categorie._id">{{ categorie.nom }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Submit Button -->
+    <button class="btn btn-primary btn-sm" mat-flat-button color="primary" type="submit">Ajouter Formation</button>
+  </form>
+</div>

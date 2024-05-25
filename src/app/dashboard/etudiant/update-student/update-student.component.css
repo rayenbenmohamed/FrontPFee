@@ -1,0 +1,10 @@
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  mat-dialog-content {
+    width: 100%; /* Adjust the width as necessary */
+  }
+  

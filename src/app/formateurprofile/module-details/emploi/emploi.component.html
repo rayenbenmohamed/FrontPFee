@@ -1,0 +1,35 @@
+<!-- src/app/emploi/emploi.component.html -->
+<div *ngIf="emploi" class="container mt-3" id="print-emploi">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ emploi.nom }}</h5>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Jour</th>
+              <th scope="col">Heures</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let day of days">
+              <td>{{ day | titlecase }}</td>
+              <td>
+                <ul class="list-unstyled">
+                  <li *ngFor="let plage of getDayPlages(day)">
+                    <ng-container *ngIf="plage?.heureDebut && plage?.heureFin; else noTimeRange">
+                      De {{ plage.heureDebut }} à {{ plage.heureFin }}
+                    </ng-container>
+                    <ng-template #noTimeRange>Aucune heure définie</ng-template>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- Add Print button -->
+  <button type="button" class="btn btn-primary mt-2" (click)="printEmploi()">Print</button>
+</div>

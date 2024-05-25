@@ -1,0 +1,25 @@
+<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="nomModule">Nom du Module</label>
+    <input type="text" id="nomModule" formControlName="nomModule" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label for="enseignant">Enseignant</label>
+    <select id="enseignant" formControlName="enseignantId" class="form-control">
+      <!-- Updated formControlName to 'enseignantId' -->
+      <option value="">Select Enseignant</option>
+      <option *ngFor="let enseignant of formateurs" [value]="enseignant._id">{{ enseignant.nom }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="formation">Formation</label>
+    <select id="formation" formControlName="formationsId" class="form-control">
+      <!-- Updated formControlName to 'formationsId' -->
+      <option value="">Select Formation</option>
+      <option *ngFor="let formation of formations" [value]="formation._id">{{ formation.nomformation }}</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Update Module</button>
+</form>

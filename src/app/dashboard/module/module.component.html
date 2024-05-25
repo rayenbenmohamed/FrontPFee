@@ -1,0 +1,56 @@
+<div class="main-content">
+    <button class="btn btn-primary" (click)="openAddModuleDialog()">Add New Module</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Module</th>
+                <th>Enseignant</th>
+                <th>Formations</th>
+                <th>Number of Students</th>
+                <th>Emploi</th>
+                <th>Actions</th> <!-- New column for the button -->
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let module of modules">
+                <td>{{ module.nomModule }}</td>
+                <td>{{ module.enseignant?.nom }}</td>
+                <td>{{ module.formations?.nomformation }}</td>
+
+
+                <td>
+
+                    <button class="btn btn-link" (click)="openEtudiantModuleDialog(module)">
+                        {{ module.etudiants.length }}
+                    </button>
+                    <button class="btn btn-success btn-sm" (click)="openAddStudentDialog(module._id)">
+                        Add Students <!-- Button to open the AddStudentComponent modal -->
+                    </button>
+                </td>
+
+                <td>
+                    <a *ngIf="module.emploi?._id" (click)="module.emploi._id && fetchEmploiDetails(module.emploi._id, module._id)"
+                         class="text-decoration-none">
+                        {{ module.emploi?.nom }}
+                    </a>
+
+                    <button *ngIf="!module.emploi" class="btn btn-success btn-sm"
+                        (click)="openAddEmploiDialog(module._id)">
+                        Add Emploi
+                    </button>
+                </td>
+
+
+
+                <td>
+                    <button class="btn btn-success btn-sm" (click)="openUpdateModuleModal(module)">Update</button>
+                    <button class="btn btn-danger btn-sm" (click)="deleteModule(module._id)">Delete</button>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+<app-sidebar></app-sidebar>

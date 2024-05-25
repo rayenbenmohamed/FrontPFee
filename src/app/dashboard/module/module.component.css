@@ -1,0 +1,40 @@
+/* etudiant.component.scss */
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+.table-responsive {
+  width: 100%; /* Ensures the table container fills the available space */
+  overflow-x: auto; /* Allows for horizontal scrolling if the table overflows */
+}
+
+
+.main-content {
+  margin-left: 270px; /* Ajustez cette valeur selon vos besoins */
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+/* Add a border to the entire table */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 20px; /* Adds space between tables */
+  }
+  
+  /* Add a border to each cell */
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  /* Style for the list inside the table cells */
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    padding: 2px 0; /* Optional: Adjusts the spacing of list items */
+  }
+  

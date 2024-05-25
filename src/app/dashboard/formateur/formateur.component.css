@@ -1,0 +1,39 @@
+/* Styles supplémentaires pour main-content */
+
+.main-content h1, .main-content h2, .main-content h3 {
+    color: #343a40; /* Couleur des en-têtes */
+  }
+  
+ /* Main Content Styles */
+.main-content {
+    margin-left: 270px; /* Ajustez cette valeur selon vos besoins */
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #f8f9fa; /* Couleur de fond pour le contenu */
+  }
+  
+  
+  /* Style de carte pour afficher des blocs d'informations */
+  .card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px; /* Espace entre les cartes */
+  }
+  
+  .card-header {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .card-content {
+    font-size: 16px;
+    color: #666;
+  }
+  

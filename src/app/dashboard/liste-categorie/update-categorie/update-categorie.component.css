@@ -1,0 +1,16 @@
+.update-categorie-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .full-width {
+    width: 100%; /* Ensures the input fields take full width */
+  }
+  
+  .action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+      

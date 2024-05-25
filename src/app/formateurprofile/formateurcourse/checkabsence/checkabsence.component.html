@@ -1,0 +1,38 @@
+<h1 mat-dialog-title>Absences</h1>
+<div mat-dialog-content>
+  <div id="print-section">
+    <table mat-table [dataSource]="absences" class="mat-elevation-z8">
+      <ng-container matColumnDef="etudiantNom">
+        <th mat-header-cell *matHeaderCellDef> Nom </th>
+        <td mat-cell *matCellDef="let absence"> {{ absence.etudiants[0]?.nom }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="etudiantPrenom">
+        <th mat-header-cell *matHeaderCellDef> Prénom </th>
+        <td mat-cell *matCellDef="let absence"> {{ absence.etudiants[0]?.prenom }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="etudiantEmail">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let absence"> {{ absence.etudiants[0]?.email }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dateAbsence">
+        <th mat-header-cell *matHeaderCellDef> Date </th>
+        <td mat-cell *matCellDef="let absence"> {{ absence.date | date }} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="sessionNumber">
+        <th mat-header-cell *matHeaderCellDef> Session Number </th>
+        <td mat-cell *matCellDef="let absence"> {{ absence.sessionNumber }} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['etudiantNom', 'etudiantPrenom', 'etudiantEmail', 'dateAbsence', 'sessionNumber']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['etudiantNom', 'etudiantPrenom', 'etudiantEmail', 'dateAbsence', 'sessionNumber'];"></tr>
+    </table>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">Close</button>
+  <button mat-button (click)="printAbsences()">Print</button>
+</div>

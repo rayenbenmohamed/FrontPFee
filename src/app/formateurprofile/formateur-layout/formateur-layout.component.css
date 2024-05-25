@@ -1,0 +1,29 @@
+.example-container {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .example-sidenav {
+
+    left: 0;
+    height: 100%;
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    overflow-y: auto; /* Enable scrolling if content exceeds height */
+  }
+  .mat-drawer-content {
+    margin-left: 220px; /* Adjust the margin as needed to move the content to the right */
+    padding: 20px; /* Add padding to maintain spacing */
+}
+.example-container {
+  min-height: 100vh;  /* Ensure container takes minimum height */
+}
+
+  
+  .profile-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  

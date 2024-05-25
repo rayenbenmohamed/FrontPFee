@@ -1,0 +1,52 @@
+<div mat-dialog-content>
+  <h2>Update Student</h2>
+  <form [formGroup]="updateStudentForm" (ngSubmit)="onSubmit()">
+    <!-- Nom -->
+    <mat-form-field appearance="fill">
+      <mat-label>Nom</mat-label>
+      <input matInput type="text" id="nom" formControlName="nom" required>
+    </mat-form-field>
+
+    <!-- Prénom -->
+    <mat-form-field appearance="fill">
+      <mat-label>Prénom</mat-label>
+      <input matInput type="text" id="prenom" formControlName="prenom" required>
+    </mat-form-field>
+
+    <!-- Date de naissance -->
+    <mat-form-field appearance="fill">
+      <mat-label>Date de naissance</mat-label>
+      <input matInput type="date" id="date_naissance" formControlName="date_naissance" required>
+    </mat-form-field>
+
+    <!-- Numéro de téléphone -->
+    <mat-form-field appearance="fill">
+      <mat-label>Numéro de téléphone</mat-label>
+      <input matInput type="text" id="numTel" formControlName="numTel">
+    </mat-form-field>
+
+    <!-- Email -->
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" id="email" formControlName="email" required>
+    </mat-form-field>
+
+    <!-- CIN -->
+    <mat-form-field appearance="fill">
+      <mat-label>CIN</mat-label>
+      <input matInput type="text" id="cin" formControlName="cin" required>
+    </mat-form-field>
+
+    <!-- Niveau Scolaire -->
+    <mat-form-field appearance="fill">
+      <mat-label>Niveau Scolaire</mat-label>
+      <input matInput type="text" id="niveauScolaire" formControlName="niveauScolaire">
+    </mat-form-field>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button  class="btn btn-primary btn-sm" mat-button mat-raised-button color="primary" type="submit">Update</button>
+      <button class="btn btn-danger btn-sm" mat-button mat-stroked-button color="warn" (click)="closeModal()">Close</button>
+    </div>
+  </form>
+</div>

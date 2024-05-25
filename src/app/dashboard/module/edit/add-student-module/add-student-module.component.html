@@ -1,0 +1,16 @@
+<div class="container mt-3">
+    <h2>Add Students</h2>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search by name" [(ngModel)]="searchText" aria-label="Search by name" aria-describedby="basic-addon2">
+        <span class="input-group-text" id="basic-addon2"><i class="bi bi-search"></i></span>
+    </div>
+    <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action" *ngFor="let student of filterStudents()" aria-current="true">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">{{ student.nom }} {{ student.prenom }}</h5>
+                <small>CIN: {{ student.cin }}</small>
+            </div>
+            <button class="btn btn-primary btn-sm" *ngIf="student._id" (click)="addStudentToGroup(student._id); $event.preventDefault()">Add to Module</button>
+        </a>
+    </div>
+</div>

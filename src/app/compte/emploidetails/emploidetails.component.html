@@ -1,0 +1,33 @@
+<div *ngIf="emploi" class="container mt-3">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ emploi.nom }}</h5>
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Jour</th>
+              <th scope="col">Heures</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let jour of ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche']">
+              <td>{{ jour | titlecase }}</td>
+              <td>
+                <ul class="list-unstyled">
+                  <li *ngFor="let plage of $any(emploi)[jour]">
+                    <ng-container *ngIf="plage.heureDebut && plage.heureFin; else noTimeRange">
+                      De {{ plage.heureDebut }} à {{ plage.heureFin }}
+                    </ng-container>
+                    <ng-template #noTimeRange></ng-template>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <button class="btn btn-primary" (click)="printEmploi()">Print Emploi</button>
+    </div>
+  </div>
+</div>

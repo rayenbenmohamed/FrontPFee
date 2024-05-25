@@ -1,0 +1,46 @@
+<div *ngIf="etudiants.data.length > 0">
+    <h2>Absence pour les Candidats pour la séance de {{ currentDate | date: 'fullDate' }}</h2>
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="etudiants" class="mat-elevation-z8">
+            <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef> Select </th>
+            <td mat-cell *matCellDef="let row">
+              <mat-checkbox (click)="$event.stopPropagation()"
+                            (change)="selection.toggle(row)"
+                            [checked]="selection.isSelected(row)"
+                            [aria-label]="checkboxLabel(row)">
+              </mat-checkbox>
+            </td>
+          </ng-container>
+        <!-- Nom Column -->
+        <ng-container matColumnDef="nom">
+          <th mat-header-cell *matHeaderCellDef> Nom </th>
+          <td mat-cell *matCellDef="let etudiant"> {{ etudiant.nom }} </td>
+        </ng-container>
+  
+        <!-- Prénom Column -->
+        <ng-container matColumnDef="prenom">
+          <th mat-header-cell *matHeaderCellDef> Prénom </th>
+          <td mat-cell *matCellDef="let etudiant"> {{ etudiant.prenom }} </td>
+        </ng-container>
+  
+        <!-- Email Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let etudiant"> {{ etudiant.email }} </td>
+        </ng-container>
+  
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let etudiant">
+            <!-- Any specific actions you want to include -->
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <button (click)="addAbsence()" class="btn btn-primary mt-2">Mark Absence for Selected</button>
+  </div>
+</div>

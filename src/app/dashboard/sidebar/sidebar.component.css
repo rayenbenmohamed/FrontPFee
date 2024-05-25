@@ -1,0 +1,68 @@
+.dashboard {
+  height: 100vh;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 200px;
+  background-color: #333;
+  color: #fff;
+  overflow-y: auto; /* Enable scrolling if content exceeds height */
+  content: center;
+}
+.sidebar ul li {
+  font-size: 18px;  /* Adjust the font size as needed */
+  padding: 15px 20px;  /* Adjust top/bottom and left/right padding as needed */
+  margin: 5px 0;  /* Adds spacing between each item */
+  background-color: #f0f0f0;  /* Optional: Adds a background color to each item */
+  border-radius: 5px;  /* Optional: Rounds the corners of each item */
+}
+
+.sidebar ul li a {
+  display: block;  /* Makes the link fill the entire list item */
+  color: #333;  /* Sets the text color */
+  text-decoration: none;  /* Removes underline from links */
+}
+
+.sidebar ul li a:hover, .sidebar ul li a.active-link {
+  background-color: #ddd;  /* Changes background on hover and for active link */
+  color: #000;  /* Changes text color on hover */
+}
+
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  text-decoration: underline;
+}
+
+.active-link {
+  font-weight: bold;
+}
+
+.main-content {
+  padding: 20px;
+}

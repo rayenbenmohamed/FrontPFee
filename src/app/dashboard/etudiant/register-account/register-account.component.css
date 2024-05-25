@@ -1,0 +1,12 @@
+.registration-form {
+    width: 100%; /* Adjust width as necessary */
+    max-width: 360px; /* Or as per your design */
+    margin: auto; /* Centers the form on the page */
+    padding: 20px; /* Padding around the form */
+  }
+  
+  mat-form-field {
+    width: 100%; /* Full width form fields */
+    margin-bottom: 16px; /* Spacing between fields */
+  }
+  

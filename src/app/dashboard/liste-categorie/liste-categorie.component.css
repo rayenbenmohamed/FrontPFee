@@ -1,0 +1,15 @@
+/* etudiant.component.scss */
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+.table-responsive {
+  width: 100%; /* Ensures the table container fills the available space */
+  overflow-x: auto; /* Allows for horizontal scrolling if the table overflows */
+}
+
+
+.main-content {
+  margin-left: 270px; /* Ajustez cette valeur selon vos besoins */
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+}

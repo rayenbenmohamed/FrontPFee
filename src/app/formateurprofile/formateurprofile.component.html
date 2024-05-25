@@ -1,0 +1,44 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<mat-drawer-container class="example-container">
+  <!-- Sidenav for Account Information -->
+  <mat-drawer mode="side" opened class="example-sidenav">
+    <div class="p-3">
+        <div class="card-header bg-primary text-white">Profil de l'enseignant</div>
+      <br/>
+        <div *ngIf="compte" class="profile-image">
+          <img *ngIf="compte.imageUrl; else noImage" [src]="compte.imageUrl" class="img-fluid rounded-circle mb-2"
+              style="width: 100px; height: 100px; object-fit: cover;">
+          <ng-template #noImage>
+            <div class="bg-secondary d-flex justify-content-center align-items-center"
+                style="width: 100px; height: 100px; border-radius: 50%; color: white;">
+              No Image
+            </div>
+          </ng-template>
+          <input type="file" (change)="onFileSelected($event)" hidden #fileInput>
+          <button class="btn btn-primary mt-2" (click)="fileInput.click()">Upload Image</button>
+        </div>
+        <div *ngIf="enseig"  class="p-3">
+          <p>First Name: {{ enseig.prenom }} </p>
+          <p>Last Name: {{ enseig.nom }}</p>
+          <p *ngIf="compte" >Rôle: {{ compte.role }}</p>
+
+      </div>
+
+
+    </div>
+    <div class="p-3">
+      <a routerLink="/formateurprofile/formateurcourse" routerLinkActive="active-link">My Courses</a>
+    </div>
+    
+
+  </mat-drawer>
+
+  <!-- Main Content Area -->
+  <mat-drawer-content>
+      <router-outlet></router-outlet>
+  </mat-drawer-content>
+
+</mat-drawer-container>

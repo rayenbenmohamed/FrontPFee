@@ -1,0 +1,20 @@
+<form [formGroup]="emploiForm" (ngSubmit)="saveEmploi()" class="container mt-3">
+  <div class="mb-3">
+    <label for="nom" class="form-label">Nom:</label>
+    <input type="text" class="form-control" formControlName="nom" id="nom">
+  </div>
+
+  <!-- Using Bootstrap row and col classes to align input fields side by side for each day -->
+  <div class="row g-3" *ngFor="let day of ['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche']; let i = index">
+    <div class="col-md-4">
+      <label for="{{day}}_heureDebut" class="form-label">{{day | titlecase}} - Heure Début:</label>
+      <input type="text" class="form-control" formControlName="{{day}}_heureDebut" id="{{day}}_heureDebut">
+    </div>
+    <div class="col-md-4">
+      <label for="{{day}}_heureFin" class="form-label">Heure Fin:</label>
+      <input type="text" class="form-control" formControlName="{{day}}_heureFin" id="{{day}}_heureFin">
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>

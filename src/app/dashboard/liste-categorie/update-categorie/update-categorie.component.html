@@ -1,0 +1,22 @@
+<div class="update-categorie-container">
+  <h2>Mise à jour Catégorie</h2>
+  <form [formGroup]="updateCategorieForm" (ngSubmit)="onSubmit()" class="update-categorie-form">
+    <!-- Name Field -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Nom</mat-label>
+      <input matInput placeholder="Entrez le nom de la catégorie" id="nom" formControlName="nom" required>
+    </mat-form-field>
+
+    <!-- Description Field -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Description</mat-label>
+      <textarea matInput placeholder="Description de la catégorie" id="description" formControlName="description"></textarea>
+    </mat-form-field>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button class="btn btn-primary btn-sm" mat-flat-button color="primary" type="submit">Modifier</button>
+      <button class="btn btn-danger btn-sm" mat-stroked-button color="warn" type="button" (click)="closeModal()">Annuler</button>
+    </div>
+  </form>
+</div>

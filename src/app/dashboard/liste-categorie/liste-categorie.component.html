@@ -1,0 +1,33 @@
+<div class="main-content">
+    <button class="btn btn-primary btn-sm" (click)="openAddCategoryDialog()">Ajouter Catégorie</button>
+
+    <div class="table-responsive">
+        <table mat-table [dataSource]="categories" class="mat-elevation-z8">
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="nom">
+                <th mat-header-cell *matHeaderCellDef> Nom </th>
+                <td mat-cell *matCellDef="let categorie"> {{ categorie.nom }} </td>
+            </ng-container>
+        
+            <!-- Description Column -->
+            <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef> Description </th>
+                <td mat-cell *matCellDef="let categorie"> {{ categorie.description }} </td>
+            </ng-container>
+            
+            <!-- Actions Column -->
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef> Actions </th>
+                <td mat-cell *matCellDef="let categorie">
+                    <button class="btn btn-primary btn-sm" (click)="openUpdateCategorieDialog(categorie)">Modifier</button>
+                    <button class="btn btn-danger btn-sm" (click)="deleteCategorie(categorie._id)" >Supprimer</button>
+                </td>
+            </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+</div>
+<app-sidebar></app-sidebar>

@@ -1,0 +1,28 @@
+<mat-drawer-container class="dashboard">
+  <!-- Toggle button -->
+  
+
+  <!-- Sidenav -->
+  <mat-drawer mode="side" [opened]="isSidebarOpen" class="sidebar">
+    <div class="logo">
+      Dashboard
+    </div>
+    <ul>
+      <li><a [routerLink]="['/dashboard/etudiant']" routerLinkActive="active-link">Liste Etudiant</a></li>
+      <li><a [routerLink]="['/dashboard/listeformation']" routerLinkActive="active-link">Liste Formation</a></li>
+      <li><a [routerLink]="['/dashboard/formateur']" routerLinkActive="active-link">Liste Formateur</a></li>
+      <li><a [routerLink]="['/dashboard/listecategorie']" routerLinkActive="active-link">Liste Categorie</a></li>
+      <li><a [routerLink]="['/dashboard/emploi']" routerLinkActive="active-link">Emploi Du Temps</a></li>
+      <li><a [routerLink]="['/dashboard/module']" routerLinkActive="active-link">Modules</a></li>
+      <li><a [routerLink]="['/dashboard/absencenotes']" routerLinkActive="active-link">Absence & Note</a></li>
+
+      <!-- More sidebar items -->
+    </ul>
+  </mat-drawer>
+  
+ 
+  <!-- Main Content -->
+  <mat-drawer-content class="main-content">
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -1,0 +1,72 @@
+<div *ngIf="successMessage" class="alert alert-success">
+  {{ successMessage }}
+</div>
+<div *ngIf="showError" class="alert alert-danger">
+  Une erreur s'est produite lors de l'envoi de la demande.
+</div>
+<form [formGroup]="demandeinsForm" (ngSubmit)="onSubmit()" class="form-container">
+  <div *ngIf="formation" class="formation-info">
+    <img [src]="formation.image" alt="Image de formation" class="formation-image">
+  </div>
+
+  <mat-form-field appearance="fill" class="form-group">
+    <mat-label>Nom</mat-label>
+    <input matInput formControlName="nom" required>
+    <mat-error *ngIf="demandeinsForm.get('nom')?.touched && demandeinsForm.get('nom')?.errors?.['required']">
+      Nom est requis.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="form-group">
+    <mat-label>Prénom</mat-label>
+    <input matInput formControlName="Prenom" required>
+    <mat-error *ngIf="demandeinsForm.get('Prenom')?.touched && demandeinsForm.get('Prenom')?.errors?.['required']">
+      Prénom est requis.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="form-group">
+    <mat-label>CIN</mat-label>
+    <input matInput formControlName="cin" required>
+    <mat-error *ngIf="demandeinsForm.get('cin')?.touched && demandeinsForm.get('cin')?.errors?.['required']">
+      CIN est requis.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="form-group">
+    <mat-label>Date de Naissance</mat-label>
+    <input matInput type="date" formControlName="date_naissance" required>
+    <mat-error *ngIf="demandeinsForm.get('date_naissance')?.touched && demandeinsForm.get('date_naissance')?.errors?.['required']">
+      Date de naissance est requise.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="form-group">
+    <mat-label>Numéro de Téléphone</mat-label>
+    <input matInput formControlName="numTel">
+    <mat-error *ngIf="demandeinsForm.get('numTel')?.touched && demandeinsForm.get('numTel')?.errors?.['required']">
+      Numéro de téléphone est requis.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="form-group">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" formControlName="email" required>
+    <mat-error *ngIf="demandeinsForm.get('email')?.touched && demandeinsForm.get('email')?.errors?.['required']">
+      Email est requis.
+    </mat-error>
+    <mat-error *ngIf="demandeinsForm.get('email')?.touched && demandeinsForm.get('email')?.errors?.['email']">
+      Email invalide.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="form-group">
+    <mat-label>Niveau Scolaire</mat-label>
+    <input matInput formControlName="niveauScolaire">
+    <mat-error *ngIf="demandeinsForm.get('niveauScolaire')?.touched && demandeinsForm.get('niveauScolaire')?.errors?.['required']">
+      Niveau scolaire est requis.
+    </mat-error>
+  </mat-form-field>
+
+  <button type="submit" mat-flat-button color="primary" class="btn-submit" [disabled]="!demandeinsForm.valid">Envoyer la demande</button>
+</form>
