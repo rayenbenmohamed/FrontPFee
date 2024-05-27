@@ -1,0 +1,19 @@
+<div class="container">
+    <h2>Demandes d'inscription</h2>
+    <ul class="demandes-list">
+      <li *ngFor="let demande of demandes" class="demande-item">
+        <div class="demande-details">
+          <span class="demande-nom">{{ demande.nom }} {{ demande.Prenom }}</span>
+          <span class="demande-info">CIN: {{ demande.cin }}</span>
+          <span class="demande-info">Date de naissance: {{ demande.date_naissance | date:'dd/MM/yyyy' }}</span>
+          <span class="demande-info">Téléphone: {{ demande.numTel }}</span>
+          <span class="demande-info">Email: {{ demande.email }}</span>
+          <span class="demande-info">Formation: {{ demande.Formation.nomformation }}</span>
+          <span class="demande-info">Niveau scolaire: {{ demande.niveauScolaire }}</span>
+        </div>
+        <button (click)="deleteDemande(demande._id)" class="btn-delete">Supprimer</button>
+      </li>
+    </ul>
+  </div>
+  <app-sidebar></app-sidebar>
+  

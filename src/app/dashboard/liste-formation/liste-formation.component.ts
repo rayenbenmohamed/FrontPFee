@@ -73,7 +73,7 @@ export class ListeFormationComponent implements OnInit {
   }
 
   deleteFormation(id: string): void {
-    if (confirm('Are you sure you want to delete this formation?')) {
+    if (confirm('Vous voulez supprimer cette formation?')) {
       this.formationService.deleteFormation(id).subscribe(
         () => {
           console.log('Formation deleted successfully');

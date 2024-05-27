@@ -57,8 +57,9 @@
         <ng-container matColumnDef="compte">
           <th mat-header-cell *matHeaderCellDef> Compte </th>
           <td mat-cell *matCellDef="let etudiant">
-            <span *ngIf="etudiant.compte">Supprimer Compte</span>
+           
             <button *ngIf="!etudiant.compte" class="btn btn-success btn-sm" (click)="openRegister(etudiant)">Ajouter Compte</button>
+            <button *ngIf="etudiant.compte" class="btn btn-danger btn-sm" (click)="deleteCompte(etudiant._id)" >Supprimer Compte</button>
           </td>
           
         </ng-container>

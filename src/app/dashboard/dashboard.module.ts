@@ -49,6 +49,7 @@ import { FormateurAddComponent } from './formateur/formateur-add/formateur-add.c
 import { FormateurUpdateComponent } from './formateur/formateur-update/formateur-update.component';
 import { FormateurRegisterComponent } from './formateur/formateur-register/formateur-register.component';
 import { AbsencenotesComponent } from './absencenotes/absencenotes.component';
+import { DemandeInscriptionComponent } from './demande-inscription/demande-inscription.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,7 @@ import { AbsencenotesComponent } from './absencenotes/absencenotes.component';
     FormateurUpdateComponent,
     FormateurRegisterComponent,
     AbsencenotesComponent,
-
+    DemandeInscriptionComponent
   ],
   imports: [
     CommonModule,

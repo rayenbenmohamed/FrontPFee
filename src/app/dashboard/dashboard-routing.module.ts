@@ -9,6 +9,7 @@ import { ListeCategorieComponent } from './liste-categorie/liste-categorie.compo
 import { ListeFormationComponent } from './liste-formation/liste-formation.component';
 import { AuthGuard } from '../auth.guard';
 import { AbsencenotesComponent } from './absencenotes/absencenotes.component';
+import { DemandeInscriptionComponent } from './demande-inscription/demande-inscription.component';
 
 const routes: Routes = [
   { path: 'dashboard/etudiant', component: EtudiantComponent ,  canActivate: [AuthGuard]},
@@ -18,8 +19,9 @@ const routes: Routes = [
   { path: 'dashboard/listecategorie', component: ListeCategorieComponent ,  canActivate: [AuthGuard]},
   { path: 'dashboard/emploi', component: EmploiComponent,  canActivate: [AuthGuard] },
   { path: 'dashboard/module', component: ModuleComponent,  canActivate: [AuthGuard] },
-  { path: 'dashboard/absencenotes', component: AbsencenotesComponent,  canActivate: [AuthGuard] }
-
+  { path: 'dashboard/absencenotes', component: AbsencenotesComponent,  canActivate: [AuthGuard] },
+  { path: 'dashboard/demandeinsc', component: DemandeInscriptionComponent,  canActivate: [AuthGuard] }
+  
   
 ];
 

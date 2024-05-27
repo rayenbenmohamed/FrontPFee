@@ -30,9 +30,10 @@
               <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
                   <h6 class="section-title bg-white text-start text-primary pe-3">À PROPOS DE NOUS
                   </h6>
-                  <h1 class="mb-4">Bienvenu to Tunisian Training School</h1>
+                  <h1 class="mb-4">{{formation.nomformation}}</h1>
                   <p class="mb-4">
                      {{formation.description}}</p>
+                   
                   <div class="row gy-2 gx-4 mb-4">
                       <div class="col-sm-6">
                           <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Instructeurs qualifiés</p>
@@ -48,6 +49,7 @@
                           <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Apprentissage par projet
                           </p>
                       </div>
+                      <a [routerLink]="['/demande-ins', 'formation', formation._id]" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 30px 30px 30px;">S'inscrire</a>
   
                   </div>
               </div>

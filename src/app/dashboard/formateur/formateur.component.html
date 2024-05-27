@@ -44,7 +44,7 @@
       <ng-container matColumnDef="compte">
         <th mat-header-cell *matHeaderCellDef> Compte </th>
         <td mat-cell *matCellDef="let formateur">
-          <span *ngIf="formateur.compte">Supprimer Compte</span>
+
           <button *ngIf="formateur.compte" class="btn btn-danger btn-sm" (click)="deleteCompte(formateur._id)">Supprimer Compte</button>
           <button *ngIf="!formateur.compte" class="btn btn-success btn-sm" (click)="openRegister(formateur)">Ajouter Compte</button>
         </td>

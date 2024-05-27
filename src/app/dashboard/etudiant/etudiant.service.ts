@@ -43,8 +43,9 @@ export class EtudiantService {
   getEtudiantByCompte(compteId: string): Observable<Etudiant> {
     return this.http.get<Etudiant>(`${this.apiUrl}/etudiants/byCompte/${compteId}`);
   }
-
-  addFormationToEtudiant(etudiantId: string, formationId: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/etudiants/${etudiantId}/formations`, { formationId });
+  deleteCompteFromEtudiant(id: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/etudiants/${id}/compte`);
   }
+
+  
 }

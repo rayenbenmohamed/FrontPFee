@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormationPopulaire } from '../model/FormationPopulaire';
 import { FormationPopulaireService } from '../services/formationpopulaire.service';
+import { FormationService } from '../services/formation.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,16 +10,22 @@ import { FormationPopulaireService } from '../services/formationpopulaire.servic
 
 })
 export class HomeComponent implements OnInit {
-  popularFormations: FormationPopulaire[] = [];
+  formations: any = {};
 
-  constructor(private formationPopulaireService: FormationPopulaireService) { }
+  constructor(private  formationService: FormationService) { }
 
   ngOnInit(): void {
-    this.formationPopulaireService.getAllPopularFormations().subscribe({
-      next: (formations) => {
-        this.popularFormations = formations;
-      },
-      error: (err) => console.error('Failed to load popular formations:', err)
-    });
+    this.getAllFormations();
   }
-}
+
+  getAllFormations(): void {
+    this.formationService.getAllFormations().subscribe({
+      next: (formations) => {
+        this.formations = formations;
+        // Initialize filtered formations
+      },
+      error: (error) => {
+        console.error('Error fetching formations:', error);
+      }
+    });
+  }}

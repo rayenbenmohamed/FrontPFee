@@ -131,6 +131,20 @@ export class EtudiantComponent implements OnInit , AfterViewInit{
       // Optionally display an error message to the user
     }
   }
+  deleteCompte(id: string): void {
+    if (confirm('Êtes-vous sûr de vouloir supprimer le compte de cet étudiant ?')) {
+      this.etudiantService.deleteCompteFromEtudiant(id).subscribe({
+        next: () => {
+          this.snackBar.open('Compte supprimé avec succès', 'Fermer', { duration: 2000 });
+          this.refreshEtudiants(); // Refresh the list of students after account deletion
+        },
+        error: (error) => {
+          console.error('Erreur lors de la suppression du compte:', error);
+          this.snackBar.open('Échec de la suppression du compte', 'Fermer', { duration: 2000 });
+        }
+      });
+    }
+  }
   
   
 }

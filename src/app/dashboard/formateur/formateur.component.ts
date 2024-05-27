@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { FormateurAddComponent } from './formateur-add/formateur-add.component'; // Adjust path here
 import { FormateurUpdateComponent } from './formateur-update/formateur-update.component';
 import { FormateurRegisterComponent } from './formateur-register/formateur-register.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-formateur',
@@ -15,7 +16,7 @@ export class FormateurComponent implements OnInit {
   formateurs: Enseignant[] = [];
   displayedColumns: string[] = ['nom', 'prenom', 'numTel', 'email', 'cin', 'certificat', 'compte', 'actions'];
 
-  constructor(private enseignantService: EnseignantService, private dialog: MatDialog) { }
+  constructor(private enseignantService: EnseignantService, private dialog: MatDialog,private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.getAllFormateurs();
@@ -61,6 +62,7 @@ export class FormateurComponent implements OnInit {
     if (confirm('Êtes-vous sûr de vouloir supprimer cet Formateur ?')) {
       this.enseignantService.deleteEnseignant(id).subscribe({
         next: () => {
+          this.snackBar.open('formateur supprimé avec succées', 'Close', { duration: 2000 });
           // Remove the enseignant from the local array
           this.formateurs = this.formateurs.filter(formateur => formateur._id !== id);
         },
